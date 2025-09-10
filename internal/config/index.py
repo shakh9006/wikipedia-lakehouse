@@ -10,6 +10,8 @@ MINIO_BUCKET = os.getenv("MINIO_BUCKET")
 MINIO_ACCESS_KEY = os.getenv("MINIO_ACCESS")
 MINIO_SECRET_KEY = os.getenv("MINIO_SECRET")
 MINIO_SECURE = os.getenv("MINIO_SECURE", "false").lower() == "true"
+MINIO_REGION = os.getenv("MINIO_REGION", "us-east-1")
+MINIO_CLIENT = os.getenv("MINIO_CLIENT", "minio:9000")
 
 # AIRFLOW
 DEFAULT_ARGS = {
@@ -17,3 +19,6 @@ DEFAULT_ARGS = {
     'retries': 3,
     'retry_delay': timedelta(hours=1),
 }
+
+S3_BRONZE_PREFIX = "wikipedia/pageviews"
+S3_BRONZE_BUCKET = "wikipedia-lakehouse-bronze"
